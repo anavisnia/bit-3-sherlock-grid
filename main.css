@@ -2,20 +2,24 @@ body {
   display: grid;
   /* grid-template-columns: calc(50% - 400px) 300px 100px 400px calc(50% - 400px); */
   /* lfr - viena antroji nepanauduoto plocio */
-  grid-template-columns: 5fr 300px 100px 400px 5fr;
+  grid-template-columns: 1fr 300px 100px 400px 1fr;
+  grid-template-areas: ". paveiksliukas . tekstas ."; /*vienos eilutes celiu pavadinimas*/
   background-color: #ebecee;
 }
 img {
+  grid-area: paveiksliukas;
+  /* grid-column: 2 / 3;
+  grid-row: 1 / 2; */
   display: inline-block;
   width: 100%;
-  grid-column: 2 / 3;
 }
 div {
+  grid-area: tekstas;
+  /* grid-column: 4 / 5; */
   display: inline-block;
   width: 100%;
   text-align: center;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  grid-column: 4 / 5;
 }
 h1 {
   display: inline-block;
@@ -37,13 +41,28 @@ a {
   text-decoration: none;
 }
 
+/* body { ... grid-template-columns: 50px calc(100% - 100px) 50px; } */
+/*
 @media (max-width: 900px) {
   body {
     display: grid;
-    /* grid-template-columns: 50px calc(100% - 100px) 50px; */
+
     grid-template-columns: 5fr calc(100% - 100px) 5fr;
+  }
+  img {
+    grid-row: 2 / 3;
   }
   div {
     grid-column: 2 / 3;
   }
 }
+*/
+/* grid template area */
+@media (max-width: 900px) {
+  body {
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-areas:
+      ". tekstas ."
+      ". paveiksliukas .";
+  }
+} ;
